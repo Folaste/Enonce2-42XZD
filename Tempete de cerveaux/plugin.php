@@ -11,8 +11,7 @@ Author URI: tempetedecerveaux.local
 echo 'Hello, World!'.PHP_EOL;
 
 
-function chatbot_output 
-{
+function chatbot_output()  {
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -20,7 +19,6 @@ function chatbot_output
 			<div><input id="input" type="text" placeholder="Type something !" autocomplete="off" autofocus="true"/> </div>
 		</div>
 	</html>
-
 	<?php
 }
 
