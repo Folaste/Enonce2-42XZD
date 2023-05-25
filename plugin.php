@@ -9,4 +9,19 @@ Author URI: tempetedecerveaux.local
 */
 
 echo 'Hello, World!'.PHP_EOL;
+
+
+function chatbot_output 
+{
+	?>
+	<!DOCTYPE html>
+	<html>
+		<div id="chatbot">
+			<div><input id="input" type="text" placeholder="Type something !" autocomplete="off" autofocus="true"/> </div>
+		</div>
+	</html>
+
+	<?php
+}
+
 ?>
