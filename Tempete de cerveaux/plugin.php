@@ -20,7 +20,6 @@ function chatbot_output()
 			<div><button type="submit">Envoyer</button></div>
 		</div>
 	</html>
-
 	<?php
 }
 
