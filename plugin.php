@@ -8,20 +8,22 @@ Author: Tempete de cerveaux
 Author URI: tempetedecerveaux.local
 */
 
-echo 'Hello, World!'.PHP_EOL;
 
-
-function chatbot_output 
+function chatbot_output()
 {
 	?>
 	<!DOCTYPE html>
 	<html>
+		<p> "TEST" </p>
 		<div id="chatbot">
 			<div><input id="input" type="text" placeholder="Type something !" autocomplete="off" autofocus="true"/> </div>
+			<div><button type="submit">Envoyer</button></div>
 		</div>
 	</html>
 
 	<?php
 }
 
+
+chatbot_output();
 ?>
