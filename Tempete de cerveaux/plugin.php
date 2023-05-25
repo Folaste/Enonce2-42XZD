@@ -20,6 +20,15 @@ function chatbot_output()
 			<div><input id="input" type="text" placeholder="Type something !" autocomplete="off" autofocus="true"/> </div>
 			<div><button type="submit">Envoyer</button></div>
 		</div>
+		<script>
+			function sendMessage()
+			{
+				var input = document.getElementsByID("input");
+				var message = input.value;
+
+				input.value = "";
+			}
+		</script>
 	</html>
 	<?php
 }
