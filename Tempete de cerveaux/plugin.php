@@ -26,10 +26,6 @@ function chatbot_output() {
           margin: 10px 0;
         }
 
-		.input {
-			max-width=275px;
-		}
-
         .user-message {
           text-align: right;
           color: #0066ff;
@@ -77,7 +73,7 @@ function chatbot_output() {
 
         function output(input) {
           const apiUrl = 'https://api.openai.com/v1/chat/completions';
-          const apiKey = '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';
+          const apiKey = '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';
 
           const headers = {
             'Content-Type': 'application/json',
@@ -85,9 +81,9 @@ function chatbot_output() {
           };
 
           const data = {
-            'max_tokens': 50, 
+            'max_tokens': 500, 
 			'model': "gpt-3.5-turbo",
-			'messages': [{"role": "user", "content": input}]
+			'messages': [{"role": "system", "content": "Maintenant tu es un chatbot spécialisé en neurosciences, et tu ne pourras répondre  qu\'aux questions portant sur les neurosciences, tu ne fais que des reponses aux questions, et rien d'autre."},{"role": "user", "content": input}]
           };
 
           fetch(apiUrl, {
@@ -98,7 +94,7 @@ function chatbot_output() {
             .then(response => response.json())
             .then(responseData => {
               if (responseData.choices && responseData.choices.length > 0) {
-                const answer = responseData.choices[0].text.trim();
+               	const answer = responseData.choices[0].message.content;
                 displayChatbotMessage(answer);
               }
             })
