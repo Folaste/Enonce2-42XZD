@@ -73,7 +73,7 @@ function chatbot_output() {
 
         function output(input) {
           const apiUrl = 'https://api.openai.com/v1/chat/completions';
-          const apiKey = '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';
+          const apiKey = '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';
 
           const headers = {
             'Content-Type': 'application/json',
