@@ -8,9 +8,9 @@ Author: Tempete de cerveaux
 Author URI: tempetedecerveaux.local
 */
 
+//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
 
-function chatbot_output()
-{
+function chatbot_output() {
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -18,26 +18,31 @@ function chatbot_output()
 		<link rel="stylesheet" href="style.css">
 		<div id="chatbot">
 			<div><input id="input" type="text" placeholder="Type something !" autocomplete="off" autofocus="true"/> </div>
-			<div><button type="submit">Envoyer</button></div>
+			<div><button type="submit" onclick="sendMessage()">Envoyer</button></div>
 		</div>
 		<script>
-			function sendMessage()
-			{
+			function sendMessage() {
 				const inputField = document.getElementById("input");
-				inputField.addEventListener("keydown", function(e) {
-					if (e.code === "Enter")
-					{
-						let input = inputField.value;
-						inputField.value = "";
-						output(input);
-					}
-				};
+				let input = inputField.value;
+				inputField.value = "";
+				output(input);
 			}
+
+			function output(input) {
+				// Logique de traitement du message utilisateur et affichage de la réponse du chatbot
+			}
+
+			// Écouteur d'événement pour la touche "Enter"
+			const inputField = document.getElementById("input");
+			inputField.addEventListener("keydown", function(e) {
+				if (e.code === "Enter") {
+					sendMessage();
+				}
+			});
 		</script>
 	</html>
 	<?php
 }
-
 
 chatbot_output();
 ?>
