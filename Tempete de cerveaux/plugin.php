@@ -26,6 +26,10 @@ function chatbot_output() {
           margin: 10px 0;
         }
 
+		.input {
+			max-width=275px;
+		}
+
         .user-message {
           text-align: right;
           color: #0066ff;
@@ -73,7 +77,7 @@ function chatbot_output() {
 
         function output(input) {
           const apiUrl = 'https://api.openai.com/v1/chat/completions';
-          const apiKey = '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';
+          const apiKey = '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';
 
           const headers = {
             'Content-Type': 'application/json',
@@ -81,8 +85,9 @@ function chatbot_output() {
           };
 
           const data = {
-            'prompt': input,
-            'max_tokens': 50
+            'max_tokens': 50, 
+			'model': "gpt-3.5-turbo",
+			'messages': [{"role": "user", "content": input}]
           };
 
           fetch(apiUrl, {
