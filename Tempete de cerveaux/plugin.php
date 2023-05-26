@@ -3,7 +3,7 @@
 Plugin Name: Tempete de cerveaux
 Plugin URI:  tempetedecerveaux.local
 Description: Plugin to add a chatbot in website
-Version: 0.4
+Version: 0.5
 Author: Tempete de cerveaux
 Author URI: tempetedecerveaux.local
 */
@@ -72,7 +72,8 @@ function chatbot_output() {
         }
 
         function output(input) {
-          const apiUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+          const apiUrl = 'https://api.openai.com/v1/chat/completions';
+          const apiKey = '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';
 
           const headers = {
             'Content-Type': 'application/json',
@@ -91,8 +92,10 @@ function chatbot_output() {
           })
             .then(response => response.json())
             .then(responseData => {
-              const answer = responseData.choices[0].text.trim();
-              displayChatbotMessage(answer);
+              if (responseData.choices && responseData.choices.length > 0) {
+                const answer = responseData.choices[0].text.trim();
+                displayChatbotMessage(answer);
+              }
             })
             .catch(error => {
               console.error('Error:', error);
@@ -101,7 +104,8 @@ function chatbot_output() {
 
         const inputField = document.getElementById("input");
         inputField.addEventListener("keydown", function(e) {
-          if (e.code === "Enter") {
+          if (e.code === "Enter" || e.code === "NumpadEnter") {
+            e.preventDefault();
             sendMessage();
           }
         });
